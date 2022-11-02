@@ -1,4 +1,13 @@
 const { models } = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const {
+  AuthenticationError,
+  ForbiddenError
+} = require('apollo-server-express');
+require('dotenv').config();
+
+const gravatar = require('../util/gravatar');
 
 module.exports = {
   newNote: async (parent, args, { models }) => {
@@ -31,3 +40,5 @@ module.exports = {
     );
   }
 };
+
+
